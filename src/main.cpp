@@ -59,7 +59,7 @@ const uint8_t COLOR[][6] = { {0, 0, 0},     // 0- NEGRE
 uint8_t color_matrix = 0; //Per determinar color local
 
 // Cal configurar amb les Mac dels diferents receptors
-uint const broadcastAddress0[] = {0xC4, 0xDD, 0x57, 0xEB, 0xF2D, 0xDC}; // tally 0 (master)
+uint8_t const broadcastAddress0[] = {0xC4, 0xDD, 0x57, 0xEB, 0x2D, 0xDC}; // tally 0 (master)
 // uint8_t broadcastAddress1[] = {0xC4, 0xDD, 0x57, 0xEB, 0xF39, 0x8C}; // tally 1 (conductor)
 // uint8_t broadcastAddress2[] = {0xC4, 0xDD, 0x57, 0xEB, 0xF43, 0x2C}; // tally 2 (productor)
 // uint8_t broadcastAddressX[] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF}; /tally x
@@ -161,7 +161,7 @@ void comunicar_valors()
  tallyOUT.battery = 1200; // CAL POSAR UNA VARIABLE
 
  // Send message via ESP-NOW
-  esp_err_t result = esp_now_send(0, (uint8_t *)&tallyOUT, sizeof(tallyOUT));
+  esp_err_t result = esp_now_send(broadcastAddress0, (uint8_t *)&tallyOUT, sizeof(tallyOUT));
 
   if (result == ESP_OK)
   {
