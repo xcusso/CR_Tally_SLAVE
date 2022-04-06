@@ -1,4 +1,4 @@
-# CR_Tally
+# CR_Tally_Slave
 
 Objectiu: 
 Crear tallys (pilots vermells ON AIR) inhalambrics multiproposit.
