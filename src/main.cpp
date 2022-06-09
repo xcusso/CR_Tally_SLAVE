@@ -1,6 +1,6 @@
 /*
 Tally CR
-MODUL 1 REMOTE (CONDUCTOR O PRODUCTOR)
+MODUL 1 SLAVE REMOTE (CONDUCTOR O PRODUCTOR)
 Aquest modul NO te els connectors GPIO
 
 OLED Display
