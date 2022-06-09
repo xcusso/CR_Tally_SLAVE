@@ -59,10 +59,11 @@ const uint8_t COLOR[][6] = {{0, 0, 0},        // 0- NEGRE
 uint8_t color_matrix = 0; // Per determinar color local
 
 // Cal configurar amb les Mac dels diferents receptors
-uint8_t const broadcastAddress0[] = {0xC4, 0xDD, 0x57, 0xEB, 0x2D, 0xDC}; // tally 0 (master)
+uint8_t broadcastAddress0[] = {0xC4, 0xDD, 0x57, 0xEB, 0x2D, 0xDC}; // tally 0 (master)
 // uint8_t broadcastAddress1[] = {0xC4, 0xDD, 0x57, 0xEB, 0xF39, 0x8C}; // tally 1 (conductor)
 // uint8_t broadcastAddress2[] = {0xC4, 0xDD, 0x57, 0xEB, 0xF43, 0x2C}; // tally 2 (productor)
-// uint8_t broadcastAddressX[] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF}; /tally x
+// uint8_t broadcastAddressx[] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF}; //tally x
+esp_now_peer_info_t peerInfo;
 
 // Variable to store if sending data was successful
 String success;
@@ -359,7 +360,7 @@ void setup()
   esp_now_register_send_cb(OnDataSent);
 
   // Register peer
-  esp_now_peer_info_t peerInfo;
+  //esp_now_peer_info_t peerInfo;  //Aquesta linea ha d'anar abans del loop i del setup
   memcpy(peerInfo.peer_addr, broadcastAddress0, 6);
   peerInfo.channel = 0;
   peerInfo.encrypt = false;
